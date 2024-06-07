@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://vtm5ub4rd2c"]
+
+[ext_resource type="Script" path="res://Scripts/Tavern/change_scene.gd" id="1_2it3n"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333
+anchor_right = 0.666
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+script = ExtResource("1_2it3n")
+next_scene = "tavern"
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]

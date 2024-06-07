@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6i71e3yhf02y"]
+[gd_scene load_steps=3 format=3 uid="uid://6i71e3yhf02y"]
 
 [ext_resource type="PackedScene" uid="uid://wmw3cig5gvty" path="res://Prefabs/Tavern/Authors/authors.tscn" id="1_mdmit"]
+[ext_resource type="PackedScene" uid="uid://bwmkmmbh7w6pm" path="res://Prefabs/Tavern/Options/options.tscn" id="2_6olpn"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -16,7 +17,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0196078, 0.0784314, 0.184314, 1)
+color = Color(0.160784, 0.286275, 0.184314, 1)
 
 [node name="Authors" parent="." instance=ExtResource("1_mdmit")]
+layout_mode = 1
+
+[node name="OptionsContainer" parent="." instance=ExtResource("2_6olpn")]
 layout_mode = 1
