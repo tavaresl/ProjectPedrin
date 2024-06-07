@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwmkmmbh7w6pm"]
+[gd_scene load_steps=6 format=3 uid="uid://bwmkmmbh7w6pm"]
 
 [ext_resource type="Script" path="res://Scripts/Tavern/change_scene.gd" id="1_ewxs8"]
 [ext_resource type="Script" path="res://Scripts/Tavern/exit_button.gd" id="2_1lx73"]
+[ext_resource type="Texture2D" uid="uid://c0mx0k8dvk08o" path="res://Sprites/UI/button_blue.svg" id="2_q2wyr"]
+[ext_resource type="Texture2D" uid="uid://bmwsrgf3vlo0w" path="res://Sprites/UI/button_white.svg" id="3_0oc11"]
+[ext_resource type="Texture2D" uid="uid://b4k88e2bkwgju" path="res://Sprites/UI/button_red.svg" id="5_5fo5y"]
 
 [node name="OptionsContainer" type="Control"]
 layout_mode = 3
 anchor_left = 0.1
-anchor_top = 0.6
+anchor_top = 0.7
 anchor_right = 0.9
-anchor_bottom = 0.8
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -22,8 +25,34 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 text = "Start"
+flat = true
 script = ExtResource("1_ewxs8")
 next_scene = "tavern"
+
+[node name="TextureRect" type="NinePatchRect" parent="StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q2wyr")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[outline_color=black][outline_size=4][font_size=40][p align=center][b]START"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -43,8 +72,34 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 text = "Credits"
+flat = true
 script = ExtResource("1_ewxs8")
 next_scene = "credits"
+
+[node name="TextureRect2" type="NinePatchRect" parent="Control/CreditsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0oc11")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/CreditsButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[outline_color=black][outline_size=4][font_size=30][p align=center][b]CREDITS"
 
 [node name="ExitButton" type="Button" parent="Control"]
 layout_mode = 1
@@ -56,7 +111,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 text = "Exit"
+flat = true
 script = ExtResource("2_1lx73")
+
+[node name="TextureRect3" type="NinePatchRect" parent="Control/ExitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_5fo5y")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control/ExitButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[outline_color=black][outline_size=4][font_size=30][p align=center][b]EXIT"
 
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
 [connection signal="pressed" from="Control/CreditsButton" to="Control/CreditsButton" method="_on_pressed"]

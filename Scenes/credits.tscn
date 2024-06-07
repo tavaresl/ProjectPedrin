@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vtm5ub4rd2c"]
+[gd_scene load_steps=5 format=3 uid="uid://vtm5ub4rd2c"]
 
 [ext_resource type="Script" path="res://Scripts/Tavern/change_scene.gd" id="1_2it3n"]
+[ext_resource type="Texture2D" uid="uid://wih1bq4dg0sm" path="res://Sprites/Tavern/mainmenu_background.svg" id="1_au7lt"]
+[ext_resource type="Texture2D" uid="uid://b3e1ma5pbxium" path="res://Sprites/UI/plain-arrow.svg" id="2_jxq1c"]
 [ext_resource type="Script" path="res://Scripts/HUD/open_link_meta.gd" id="2_k3fs4"]
 
 [node name="Root" type="Control"]
@@ -11,25 +13,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundColor" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.160784, 0.286275, 0.184314, 1)
+texture = ExtResource("1_au7lt")
+expand_mode = 2
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.15
-anchor_bottom = 0.15
+anchor_bottom = 0.2
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_jxq1c")
+ignore_texture_size = true
+stretch_mode = 5
 script = ExtResource("1_2it3n")
 next_scene = "tavern"
 
@@ -64,6 +70,8 @@ bbcode_enabled = true
 text = "[p align=center]
 Programming: [url=https://github.com/Falme]Falme Streamless[/url]
 Programming: [url=https://github.com/tavaresl]Lucas Tavares[/url]
+Guitar Icon by [url=https://game-icons.net/1x1/lorc/guitar.html]Lorc[/url]
+Plain arrow icon by [url=https://game-icons.net/1x1/delapouite/plain-arrow.html]Delapouite[/url]
 [/p]"
 script = ExtResource("2_k3fs4")
 

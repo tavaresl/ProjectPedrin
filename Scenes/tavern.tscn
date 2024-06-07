@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://6i71e3yhf02y"]
+[gd_scene load_steps=6 format=3 uid="uid://6i71e3yhf02y"]
 
+[ext_resource type="Texture2D" uid="uid://wih1bq4dg0sm" path="res://Sprites/Tavern/mainmenu_background.svg" id="1_46ov7"]
+[ext_resource type="Texture2D" uid="uid://e4qjcfonjp6f" path="res://Sprites/Tavern/mainmenu.svg" id="1_f1wnj"]
 [ext_resource type="PackedScene" uid="uid://wmw3cig5gvty" path="res://Prefabs/Tavern/Authors/authors.tscn" id="1_mdmit"]
 [ext_resource type="PackedScene" uid="uid://bwmkmmbh7w6pm" path="res://Prefabs/Tavern/Options/options.tscn" id="2_6olpn"]
+[ext_resource type="Texture2D" uid="uid://dh3whpuwxgcof" path="res://Sprites/Tavern/guitar.svg" id="4_iij3v"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -11,13 +14,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundColor" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.160784, 0.286275, 0.184314, 1)
+texture = ExtResource("1_46ov7")
+expand_mode = 2
+
+[node name="Background2" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_f1wnj")
+expand_mode = 2
 
 [node name="Authors" parent="." instance=ExtResource("1_mdmit")]
 layout_mode = 1
@@ -28,11 +41,25 @@ layout_mode = 1
 [node name="Title" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.2
-anchor_top = 0.2
+anchor_top = 0.1
 anchor_right = 0.8
-anchor_bottom = 0.5
+anchor_bottom = 0.4
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.739
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.99841
+offset_right = 6.99835
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_iij3v")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Title"]
 layout_mode = 1
