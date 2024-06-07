@@ -27,7 +27,7 @@ mouse_default_cursor_shape = 2
 text = "Start"
 flat = true
 script = ExtResource("1_ewxs8")
-next_scene = "tavern"
+next_scene = "gameplay"
 
 [node name="TextureRect" type="NinePatchRect" parent="StartButton"]
 layout_mode = 1
