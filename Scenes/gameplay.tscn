@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnsd26b2njlp"]
+
+[ext_resource type="Script" path="res://Scripts/StateManagers/GameplayStateManager.gd" id="1_c34ev"]
+[ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/GameplayStateButton.gd" id="2_p2lb2"]
+
+[node name="GameplayScene" type="Node"]
+
+[node name="GameplayStateManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_c34ev")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DEBUG" type="Node" parent="."]
+
+[node name="Container" type="HBoxContainer" parent="DEBUG"]
+offset_left = -575.0
+offset_top = 258.0
+offset_right = 577.0
+offset_bottom = 322.0
+alignment = 1
+
+[node name="GameplayStateButton6" type="Button" parent="DEBUG/Container"]
+layout_mode = 2
+text = "Go to WAITING_ON_TAVERN"
+script = ExtResource("2_p2lb2")
+
+[node name="GameplayStateButton2" type="Button" parent="DEBUG/Container"]
+layout_mode = 2
+text = "Go to ENTERED_DUNGEON"
+script = ExtResource("2_p2lb2")
+state = 1
+
+[node name="GameplayStateButton3" type="Button" parent="DEBUG/Container"]
+layout_mode = 2
+text = "Go to ENTERED_BATTLE"
+script = ExtResource("2_p2lb2")
+state = 2
+
+[node name="GameplayStateButton4" type="Button" parent="DEBUG/Container"]
+layout_mode = 2
+text = "Go to DEFEAT"
+script = ExtResource("2_p2lb2")
+state = 3
+
+[node name="GameplayStateButton5" type="Button" parent="DEBUG/Container"]
+layout_mode = 2
+text = "Go to VICTORY"
+script = ExtResource("2_p2lb2")
+state = 4
+
+[connection signal="pressed" from="DEBUG/Container/GameplayStateButton6" to="DEBUG/Container/GameplayStateButton6" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/Container/GameplayStateButton2" to="DEBUG/Container/GameplayStateButton2" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/Container/GameplayStateButton3" to="DEBUG/Container/GameplayStateButton3" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/Container/GameplayStateButton4" to="DEBUG/Container/GameplayStateButton4" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/Container/GameplayStateButton5" to="DEBUG/Container/GameplayStateButton5" method="_on_pressed"]
