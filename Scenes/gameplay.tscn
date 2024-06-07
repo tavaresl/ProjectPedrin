@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnsd26b2njlp"]
+[gd_scene load_steps=6 format=3 uid="uid://bnsd26b2njlp"]
 
 [ext_resource type="Script" path="res://Scripts/StateManagers/GameplayStateManager.gd" id="1_c34ev"]
+[ext_resource type="Script" path="res://Scripts/StateManagers/BattleStateManager.gd" id="2_bpsla"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/GameplayStateButton.gd" id="2_p2lb2"]
+[ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/BattleStateTogglersPanel.gd" id="3_2kbo2"]
+[ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/BattleStateButton.gd" id="4_ujtoj"]
 
 [node name="GameplayScene" type="Node"]
 
@@ -9,48 +12,111 @@
 unique_name_in_owner = true
 script = ExtResource("1_c34ev")
 
+[node name="BattleStateManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_bpsla")
+initial_state = null
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="DEBUG" type="Node" parent="."]
 
-[node name="Container" type="HBoxContainer" parent="DEBUG"]
+[node name="GameplayStateTogglers" type="HBoxContainer" parent="DEBUG"]
 offset_left = -575.0
 offset_top = 258.0
 offset_right = 577.0
 offset_bottom = 322.0
 alignment = 1
 
-[node name="GameplayStateButton6" type="Button" parent="DEBUG/Container"]
+[node name="GameplayStateButton6" type="Button" parent="DEBUG/GameplayStateTogglers"]
 layout_mode = 2
 text = "Go to WAITING_ON_TAVERN"
 script = ExtResource("2_p2lb2")
 
-[node name="GameplayStateButton2" type="Button" parent="DEBUG/Container"]
+[node name="GameplayStateButton2" type="Button" parent="DEBUG/GameplayStateTogglers"]
 layout_mode = 2
 text = "Go to ENTERED_DUNGEON"
 script = ExtResource("2_p2lb2")
 state = 1
 
-[node name="GameplayStateButton3" type="Button" parent="DEBUG/Container"]
+[node name="GameplayStateButton3" type="Button" parent="DEBUG/GameplayStateTogglers"]
 layout_mode = 2
 text = "Go to ENTERED_BATTLE"
 script = ExtResource("2_p2lb2")
 state = 2
 
-[node name="GameplayStateButton4" type="Button" parent="DEBUG/Container"]
+[node name="GameplayStateButton4" type="Button" parent="DEBUG/GameplayStateTogglers"]
 layout_mode = 2
 text = "Go to DEFEAT"
 script = ExtResource("2_p2lb2")
 state = 3
 
-[node name="GameplayStateButton5" type="Button" parent="DEBUG/Container"]
+[node name="GameplayStateButton5" type="Button" parent="DEBUG/GameplayStateTogglers"]
 layout_mode = 2
 text = "Go to VICTORY"
 script = ExtResource("2_p2lb2")
 state = 4
 
-[connection signal="pressed" from="DEBUG/Container/GameplayStateButton6" to="DEBUG/Container/GameplayStateButton6" method="_on_pressed"]
-[connection signal="pressed" from="DEBUG/Container/GameplayStateButton2" to="DEBUG/Container/GameplayStateButton2" method="_on_pressed"]
-[connection signal="pressed" from="DEBUG/Container/GameplayStateButton3" to="DEBUG/Container/GameplayStateButton3" method="_on_pressed"]
-[connection signal="pressed" from="DEBUG/Container/GameplayStateButton4" to="DEBUG/Container/GameplayStateButton4" method="_on_pressed"]
-[connection signal="pressed" from="DEBUG/Container/GameplayStateButton5" to="DEBUG/Container/GameplayStateButton5" method="_on_pressed"]
+[node name="BattleStateTogglers" type="VBoxContainer" parent="DEBUG"]
+offset_left = 346.0
+offset_top = -359.0
+offset_right = 570.0
+offset_bottom = 362.0
+alignment = 1
+script = ExtResource("3_2kbo2")
+
+[node name="BattleStateButton" type="Button" parent="DEBUG/BattleStateTogglers"]
+layout_mode = 2
+text = "Go to ROUND_START,"
+script = ExtResource("4_ujtoj")
+
+[node name="BattleStateButton2" type="Button" parent="DEBUG/BattleStateTogglers"]
+layout_mode = 2
+text = "Go to DRAG_A_CART,"
+script = ExtResource("4_ujtoj")
+state = 1
+
+[node name="BattleStateButton3" type="Button" parent="DEBUG/BattleStateTogglers"]
+layout_mode = 2
+text = "Go to DROP_ON_REGION,"
+script = ExtResource("4_ujtoj")
+state = 2
+
+[node name="BattleStateButton4" type="Button" parent="DEBUG/BattleStateTogglers"]
+layout_mode = 2
+text = "Go to PREVIEW_EFFECTS,"
+script = ExtResource("4_ujtoj")
+state = 3
+
+[node name="BattleStateButton5" type="Button" parent="DEBUG/BattleStateTogglers"]
+layout_mode = 2
+text = "Go to CONFIRM_SELECTION,"
+script = ExtResource("4_ujtoj")
+state = 4
+
+[node name="BattleStateButton6" type="Button" parent="DEBUG/BattleStateTogglers"]
+layout_mode = 2
+text = "Go to RUN_TIMELINE,"
+script = ExtResource("4_ujtoj")
+state = 5
+
+[node name="BattleStateButton7" type="Button" parent="DEBUG/BattleStateTogglers"]
+layout_mode = 2
+text = "Go to END_BATTLE,"
+script = ExtResource("4_ujtoj")
+state = 6
+
+[connection signal="state_changed" from="GameplayStateManager" to="BattleStateManager" method="_on_gameplay_state_manager_state_changed"]
+[connection signal="state_changed" from="GameplayStateManager" to="DEBUG/BattleStateTogglers" method="_on_gameplay_state_manager_state_changed"]
+[connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton6" to="DEBUG/GameplayStateTogglers/GameplayStateButton6" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton2" to="DEBUG/GameplayStateTogglers/GameplayStateButton2" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton3" to="DEBUG/GameplayStateTogglers/GameplayStateButton3" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton4" to="DEBUG/GameplayStateTogglers/GameplayStateButton4" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton5" to="DEBUG/GameplayStateTogglers/GameplayStateButton5" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton" to="DEBUG/BattleStateTogglers/BattleStateButton" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton2" to="DEBUG/BattleStateTogglers/BattleStateButton2" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton3" to="DEBUG/BattleStateTogglers/BattleStateButton3" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton4" to="DEBUG/BattleStateTogglers/BattleStateButton4" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton5" to="DEBUG/BattleStateTogglers/BattleStateButton5" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton6" to="DEBUG/BattleStateTogglers/BattleStateButton6" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton7" to="DEBUG/BattleStateTogglers/BattleStateButton7" method="_on_pressed"]
