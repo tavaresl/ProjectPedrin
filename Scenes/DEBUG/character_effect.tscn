@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dips2pboadrdj"]
+
+[ext_resource type="PackedScene" uid="uid://dooa1auqsjwtu" path="res://Prefabs/Gameplay/Characters/base_character.tscn" id="1_x7bcc"]
+[ext_resource type="PackedScene" uid="uid://c2iecki6to0f0" path="res://Prefabs/Gameplay/Characters/Effects/character_effect.tscn" id="2_gdiil"]
+[ext_resource type="Script" path="res://Scripts/DEBUG/CharacterEffects/character_stats_viewer.gd" id="2_x2k2y"]
+[ext_resource type="Script" path="res://Scripts/DEBUG/CharacterEffects/rounds_controller.gd" id="3_b5mex"]
+[ext_resource type="Script" path="res://Scripts/DEBUG/CharacterEffects/effects_button.gd" id="4_o0ahx"]
+[ext_resource type="Texture2D" uid="uid://c36v74iedve88" path="res://Sprites/Gameplay/Characters/Effects/BigIcons/health.png" id="5_bathq"]
+[ext_resource type="Texture2D" uid="uid://chc38h1c7pleh" path="res://Sprites/Gameplay/Characters/Effects/BigIcons/sword.png" id="6_0p2w6"]
+[ext_resource type="Texture2D" uid="uid://c2h74v5kf0efj" path="res://Sprites/Gameplay/Characters/Effects/BigIcons/shield.png" id="7_ijs0t"]
+
+[node name="CharacterEffect" type="Node"]
+
+[node name="BaseCharacter" parent="." instance=ExtResource("1_x7bcc")]
+position = Vector2(630, 306)
+max_health = 15
+base_attack_power = 5
+base_defense = 5.0
+
+[node name="Node" type="Node" parent="BaseCharacter"]
+script = ExtResource("2_x2k2y")
+
+[node name="Label" type="Label" parent="BaseCharacter/Node"]
+offset_left = 548.0
+offset_top = 366.0
+offset_right = 588.0
+offset_bottom = 389.0
+
+[node name="RoundsController" type="Node" parent="."]
+script = ExtResource("3_b5mex")
+
+[node name="Timer" type="Timer" parent="RoundsController"]
+wait_time = 5.0
+autostart = true
+
+[node name="Label" type="Label" parent="RoundsController"]
+offset_left = 573.0
+offset_top = 35.0
+offset_right = 680.0
+offset_bottom = 58.0
+text = "Next round in %s s"
+
+[node name="EffectsButtons" type="Node" parent="."]
+script = ExtResource("4_o0ahx")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="EffectsButtons"]
+offset_left = 1105.0
+offset_top = 214.0
+offset_right = 1235.0
+offset_bottom = 402.0
+
+[node name="CureEffectButton" type="Button" parent="EffectsButtons/ButtonsContainer"]
+layout_mode = 2
+text = "Cure Effect"
+
+[node name="CharacterEffect" parent="EffectsButtons/ButtonsContainer/CureEffectButton" instance=ExtResource("2_gdiil")]
+health = 20
+icon = ExtResource("5_bathq")
+
+[node name="AtkPowerEffectButton" type="Button" parent="EffectsButtons/ButtonsContainer"]
+layout_mode = 2
+text = "Attack Up Effect
+"
+
+[node name="CharacterEffect" parent="EffectsButtons/ButtonsContainer/AtkPowerEffectButton" instance=ExtResource("2_gdiil")]
+attack_power = 5
+icon = ExtResource("6_0p2w6")
+
+[node name="DefEffectButton" type="Button" parent="EffectsButtons/ButtonsContainer"]
+layout_mode = 2
+text = "Defense Up Effect
+"
+
+[node name="CharacterEffect" parent="EffectsButtons/ButtonsContainer/DefEffectButton" instance=ExtResource("2_gdiil")]
+defense = 5
+icon = ExtResource("7_ijs0t")
+
+[connection signal="timeout" from="RoundsController/Timer" to="RoundsController" method="_on_timer_timeout"]
