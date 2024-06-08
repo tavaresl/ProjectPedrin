@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnsd26b2njlp"]
+[gd_scene load_steps=9 format=3 uid="uid://bnsd26b2njlp"]
 
 [ext_resource type="Script" path="res://Scripts/StateManagers/GameplayStateManager.gd" id="1_c34ev"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/BattleStateManager.gd" id="2_bpsla"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/GameplayStateButton.gd" id="2_p2lb2"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/BattleStateTogglersPanel.gd" id="3_2kbo2"]
+[ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/GameplayStateTogglers.gd" id="3_3f21r"]
 [ext_resource type="PackedScene" uid="uid://bkc5rtfjh0boq" path="res://Prefabs/Gameplay/Interface/interface.tscn" id="3_4t4qn"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/BattleStateButton.gd" id="4_ujtoj"]
+[ext_resource type="PackedScene" uid="uid://dooa1auqsjwtu" path="res://Prefabs/Gameplay/Characters/base_character.tscn" id="8_hcmqv"]
 
 [node name="GameplayScene" type="Node"]
 
@@ -30,6 +32,7 @@ offset_top = 258.0
 offset_right = 577.0
 offset_bottom = 322.0
 alignment = 1
+script = ExtResource("3_3f21r")
 
 [node name="GameplayStateButton6" type="Button" parent="DEBUG/GameplayStateTogglers"]
 layout_mode = 2
@@ -108,6 +111,8 @@ layout_mode = 2
 text = "Go to END_BATTLE"
 script = ExtResource("4_ujtoj")
 state = 6
+
+[node name="BaseCharacter" parent="." instance=ExtResource("8_hcmqv")]
 
 [connection signal="state_changed" from="GameplayStateManager" to="BattleStateManager" method="_on_gameplay_state_manager_state_changed"]
 [connection signal="state_changed" from="GameplayStateManager" to="DEBUG/BattleStateTogglers" method="_on_gameplay_state_manager_state_changed"]
