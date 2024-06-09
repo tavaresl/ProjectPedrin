@@ -28,6 +28,7 @@ region = Rect2(113, 60, 52, 54)
 position = Vector2(-449, 89)
 
 [node name="CharacterAnimation" parent="." instance=ExtResource("1_btqbf")]
+autoplay = "character_animation/character_idle"
 
 [node name="Elements" type="Node2D" parent="."]
 
@@ -43,20 +44,19 @@ position = Vector2(19, -7)
 texture = SubResource("AtlasTexture_stn5v")
 
 [node name="Body" type="Sprite2D" parent="Elements"]
-position = Vector2(0, -63)
-rotation = -0.0515645
+position = Vector2(0, -67.5753)
+rotation = 0.0361877
 scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_3nf3m")
 offset = Vector2(0, -5.48046)
 
 [node name="Head" type="Sprite2D" parent="Elements"]
-position = Vector2(0, -123.076)
-rotation = 0.0515645
+position = Vector2(0, -125.927)
+rotation = -0.0361877
 texture = SubResource("AtlasTexture_6y38s")
 offset = Vector2(0, 20.524)
 
 [node name="Weapon" type="Sprite2D" parent="Elements"]
-position = Vector2(62, -71)
-rotation = -0.0377194
+position = Vector2(62, -73.4204)
+rotation = -0.0210452
 texture = SubResource("AtlasTexture_k6fsg")
-offset = Vector2(0, 4.92404)
