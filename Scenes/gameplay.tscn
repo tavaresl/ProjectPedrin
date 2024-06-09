@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnsd26b2njlp"]
+[gd_scene load_steps=16 format=3 uid="uid://bnsd26b2njlp"]
 
 [ext_resource type="Script" path="res://Scripts/StateManagers/GameplayStateManager.gd" id="1_c34ev"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/BattleStateManager.gd" id="2_bpsla"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/GameplayStateButton.gd" id="2_p2lb2"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/BattleStateTogglersPanel.gd" id="3_2kbo2"]
-[ext_resource type="PackedScene" uid="uid://bkc5rtfjh0boq" path="res://Prefabs/Gameplay/Interface/interface.tscn" id="3_4t4qn"]
+[ext_resource type="PackedScene" uid="uid://bss71f37daee3" path="res://Prefabs/Gameplay/Background/backgrounds.tscn" id="3_akxv0"]
+[ext_resource type="PackedScene" uid="uid://b3pntyk7cqqb4" path="res://Prefabs/Gameplay/Characters/tank.tscn" id="4_434fn"]
 [ext_resource type="Script" path="res://Scripts/StateManagers/DebugTools/BattleStateButton.gd" id="4_ujtoj"]
+[ext_resource type="PackedScene" uid="uid://cpcunysvwh7we" path="res://Prefabs/Gameplay/SlotsTimeline/timeline.tscn" id="4_vq1ot"]
+[ext_resource type="PackedScene" uid="uid://bcdvrle864qq8" path="res://Prefabs/Gameplay/Characters/tank_enemy.tscn" id="5_8ph6p"]
+[ext_resource type="PackedScene" uid="uid://dc0qjbktm430s" path="res://Prefabs/Gameplay/Characters/melee.tscn" id="5_dbvoc"]
+[ext_resource type="PackedScene" uid="uid://dr0ytu4xfv5os" path="res://Prefabs/Gameplay/Characters/ranged.tscn" id="6_dersy"]
+[ext_resource type="PackedScene" uid="uid://v1f5om2hy207" path="res://Prefabs/Gameplay/Characters/melee_enemy.tscn" id="7_hdhan"]
+[ext_resource type="PackedScene" uid="uid://c65v46udl4oxm" path="res://Prefabs/Gameplay/Cards/cards.tscn" id="9_1ydcj"]
+[ext_resource type="PackedScene" uid="uid://bd3np6droj4ly" path="res://Prefabs/Gameplay/Characters/ranged_enemy.tscn" id="9_pe1bx"]
+[ext_resource type="PackedScene" uid="uid://dacv4088pqfs6" path="res://Prefabs/Gameplay/Background/foreground.tscn" id="10_olk7j"]
 
 [node name="GameplayScene" type="Node"]
 
@@ -20,7 +29,82 @@ initial_state = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Interface" parent="." instance=ExtResource("3_4t4qn")]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Backgrounds" parent="Node2D" instance=ExtResource("3_akxv0")]
+
+[node name="Tank" parent="Node2D" instance=ExtResource("4_434fn")]
+
+[node name="Tank_Enemy" parent="Node2D" instance=ExtResource("5_8ph6p")]
+
+[node name="Melee" parent="Node2D" instance=ExtResource("5_dbvoc")]
+
+[node name="Melee_Enemy" parent="Node2D" instance=ExtResource("7_hdhan")]
+
+[node name="Ranged" parent="Node2D" instance=ExtResource("6_dersy")]
+
+[node name="Ranged_Enemy" parent="Node2D" instance=ExtResource("9_pe1bx")]
+
+[node name="Foreground" parent="Node2D" instance=ExtResource("10_olk7j")]
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timeline" parent="Interface" instance=ExtResource("4_vq1ot")]
+layout_mode = 1
+
+[node name="Cards" parent="Interface" instance=ExtResource("9_1ydcj")]
+layout_mode = 1
+
+[node name="AnimationDebug" type="Control" parent="Interface"]
+layout_mode = 1
+anchor_left = 0.031
+anchor_top = 0.222
+anchor_right = 0.209
+anchor_bottom = 0.665
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/AnimationDebug"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollScene" type="Button" parent="Interface/AnimationDebug/VBoxContainer"]
+layout_mode = 2
+text = "Scroll Scene"
+
+[node name="IdlePlayer" type="Button" parent="Interface/AnimationDebug/VBoxContainer"]
+layout_mode = 2
+text = "Player Idle"
+
+[node name="WalkingPlayer" type="Button" parent="Interface/AnimationDebug/VBoxContainer"]
+layout_mode = 2
+text = "Player Walking"
+
+[node name="AttackingPlayer" type="Button" parent="Interface/AnimationDebug/VBoxContainer"]
+layout_mode = 2
+text = "Player Attacking
+"
+
+[node name="HurtPlayer" type="Button" parent="Interface/AnimationDebug/VBoxContainer"]
+layout_mode = 2
+text = "Player Hurt
+"
+
+[node name="DeathPlayer" type="Button" parent="Interface/AnimationDebug/VBoxContainer"]
+layout_mode = 2
+text = "Player Dead"
 
 [node name="DEBUG" type="Node" parent="."]
 
@@ -111,6 +195,13 @@ state = 6
 
 [connection signal="state_changed" from="GameplayStateManager" to="BattleStateManager" method="_on_gameplay_state_manager_state_changed"]
 [connection signal="state_changed" from="GameplayStateManager" to="DEBUG/BattleStateTogglers" method="_on_gameplay_state_manager_state_changed"]
+[connection signal="pressed" from="Interface/AnimationDebug/VBoxContainer/ScrollScene" to="Node2D/Backgrounds" method="scroll_scene"]
+[connection signal="pressed" from="Interface/AnimationDebug/VBoxContainer/ScrollScene" to="Node2D/Foreground" method="scroll_scene"]
+[connection signal="pressed" from="Interface/AnimationDebug/VBoxContainer/IdlePlayer" to="Node2D/Melee" method="play_idle"]
+[connection signal="pressed" from="Interface/AnimationDebug/VBoxContainer/WalkingPlayer" to="Node2D/Melee" method="play_walk"]
+[connection signal="pressed" from="Interface/AnimationDebug/VBoxContainer/AttackingPlayer" to="Node2D/Melee" method="play_attack"]
+[connection signal="pressed" from="Interface/AnimationDebug/VBoxContainer/HurtPlayer" to="Node2D/Melee" method="play_hurt"]
+[connection signal="pressed" from="Interface/AnimationDebug/VBoxContainer/DeathPlayer" to="Node2D/Melee" method="play_death"]
 [connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton6" to="DEBUG/GameplayStateTogglers/GameplayStateButton6" method="_on_pressed"]
 [connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton2" to="DEBUG/GameplayStateTogglers/GameplayStateButton2" method="_on_pressed"]
 [connection signal="pressed" from="DEBUG/GameplayStateTogglers/GameplayStateButton3" to="DEBUG/GameplayStateTogglers/GameplayStateButton3" method="_on_pressed"]
