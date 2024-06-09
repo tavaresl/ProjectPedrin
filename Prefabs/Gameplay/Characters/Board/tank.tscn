@@ -29,7 +29,7 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_a1vf7")
 
 [node name="CharacterAnimation" parent="." instance=ExtResource("1_he8tt")]
-autoplay = "character_idle"
+autoplay = "character_animation/character_idle"
 
 [node name="Elements" type="Node2D" parent="."]
 

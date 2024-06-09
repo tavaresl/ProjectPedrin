@@ -83,6 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Timeline" parent="Interface" instance=ExtResource("4_vq1ot")]
+visible = false
 layout_mode = 1
 
 [node name="Cards" parent="Interface" instance=ExtResource("9_1ydcj")]

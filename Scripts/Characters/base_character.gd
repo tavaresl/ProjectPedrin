@@ -6,6 +6,7 @@ class_name Character
 signal action_completed()
 signal died()
 
+
 @export var max_health: int
 @export_range(1, 10) var base_attack_power: int:
 	get:
@@ -61,6 +62,11 @@ signal died()
 
 var performed_action = false
 
+var dead : bool = false
+# :
+#	get:
+#		return health <= 0
+
 func _ready():
 	_instantiate_node()
 
@@ -79,6 +85,7 @@ func receive_damage(max_amount: int, commit: bool=false) -> int:
 		health = clamp(health - max_amount - defense, 0, max_health)
 
 		if health == 0:
+			dead = true
 			animation_player.play("character_animation/character_dying")
 			died.emit()
 		else:

@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b66ufk5l5u45m"]
+[gd_scene load_steps=4 format=3 uid="uid://b66ufk5l5u45m"]
 
 [ext_resource type="Texture2D" uid="uid://cdiu03271th1b" path="res://Sprites/Gameplay/gameplay_timeline_buff.svg" id="1_6jwje"]
+[ext_resource type="Script" path="res://Scripts/Slots/slot_card.gd" id="2_8f06o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_juf75"]
 atlas = ExtResource("1_6jwje")
 region = Rect2(0, 73, 202, 73)
 
-[node name="SlotCard" type="TextureRect"]
+[node name="SlotCard" type="TextureRect" node_paths=PackedStringArray("fields")]
 texture = SubResource("AtlasTexture_juf75")
 stretch_mode = 4
+script = ExtResource("2_8f06o")
+fields = [NodePath("Offset/PropertyText"), NodePath("Offset/PropertyText2"), NodePath("Offset/PropertyText3"), NodePath("Offset/PropertyText4")]
 
 [node name="Offset" type="GridContainer" parent="."]
 layout_mode = 1

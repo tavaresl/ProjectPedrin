@@ -54,5 +54,4 @@ mouse_filter = 2
 bbcode_enabled = true
 text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
 
-[connection signal="button_down" from="." to="." method="drag"]
-[connection signal="button_up" from="." to="." method="drop"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -136,13 +136,50 @@ func _on_character_stat_changed(stat_name: String):
 
 func reset_needle():
 	$Needle.position = Vector2( - width / 2, -64)
+	
+func set_state(newstate):
+	state = newstate
+	
+func force_reset_needle():
+	for item in enemy_characters:
+		if(item != null):
+			if(item.target == null or item.target.dead):
+				var filteredAvailable = player_characters.filter(func (x): return not x.dead )
+				item.target = filteredAvailable[0] if not filteredAvailable.is_empty() else null
+			item.performed_action = false
+		
+	for item in player_characters:
+		if(item != null):
+			if(item.target == null or item.target.dead):
+				var filteredAvailable = enemy_characters.filter(func (x): return not x.dead )
+				item.target = filteredAvailable[0] if not filteredAvailable.is_empty() else null
+			item.performed_action = false
+		
+	set_state(TimelineStates.RUNNING)
+	reset_needle()
+
+func refresh_character_targets():
+	for item in enemy_characters:
+		if(item != null):
+			if(item.target == null or item.target.dead):
+				var filteredAvailable = player_characters.filter(func (x): return not x.dead )
+				item.target = filteredAvailable[0] if not filteredAvailable.is_empty() else null
+		
+	for item in player_characters:
+		if(item != null):
+			if(item.target == null or item.target.dead):
+				var filteredAvailable = enemy_characters.filter(func (x): return not x.dead )
+				item.target = filteredAvailable[0] if not filteredAvailable.is_empty() else null
+
 
 func _on_needle_hit_character(timeline_character):
 	if state == TimelineStates.RUNNING and not timeline_character.character.performed_action and not timeline_character.dead:
-		state = TimelineStates.WAITING_ACTION_COMPLETE
-		timeline_character.character.action_completed.connect(_on_character_action_complete.bind(timeline_character.character))
-		timeline_character.character.target.died.connect(_on_character_target_died.bind(timeline_character.character.target))
-		timeline_character.character.perform_action()
+		refresh_character_targets()
+		if timeline_character.character.target != null and not timeline_character.character.target.dead:
+			state = TimelineStates.WAITING_ACTION_COMPLETE
+			timeline_character.character.action_completed.connect(_on_character_action_complete.bind(timeline_character.character))
+			timeline_character.character.target.died.connect(_on_character_target_died.bind(timeline_character.character.target))
+			timeline_character.character.perform_action()
 
 func _on_character_action_complete(character):
 	state = TimelineStates.RUNNING
