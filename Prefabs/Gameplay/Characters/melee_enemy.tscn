@@ -50,16 +50,16 @@ position = Vector2(19, -7)
 texture = SubResource("AtlasTexture_27jmc")
 
 [node name="Body" type="Sprite2D" parent="Elements"]
-position = Vector2(0, -67.5753)
-rotation = 0.0361877
+position = Vector2(0, -63)
 texture = SubResource("AtlasTexture_fe13x")
 
 [node name="Head" type="Sprite2D" parent="Elements"]
-position = Vector2(0, -125.927)
-rotation = -0.0361877
+position = Vector2(0, -128)
 texture = SubResource("AtlasTexture_ykosv")
 
 [node name="Weapon" type="Sprite2D" parent="Elements"]
-position = Vector2(62, -73.4204)
-rotation = -0.0210452
+position = Vector2(62, -71)
 texture = SubResource("AtlasTexture_tfitk")
+
+[connection signal="animation_finished" from="CharacterAnimation" to="." method="_on_character_animation_animation_finished"]
+[connection signal="animation_started" from="CharacterAnimation" to="." method="_on_character_animation_animation_started"]

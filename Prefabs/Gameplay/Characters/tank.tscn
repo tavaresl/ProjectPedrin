@@ -59,3 +59,6 @@ texture = SubResource("AtlasTexture_wmrat")
 [node name="Weapon" type="Sprite2D" parent="Elements"]
 position = Vector2(62, -71)
 texture = SubResource("AtlasTexture_jwhgv")
+
+[connection signal="animation_finished" from="CharacterAnimation" to="." method="_on_character_animation_animation_finished"]
+[connection signal="animation_started" from="CharacterAnimation" to="." method="_on_character_animation_animation_started"]
