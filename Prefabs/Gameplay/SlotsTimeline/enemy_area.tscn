@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://drpssq1l87lm5"]
+
+[ext_resource type="PackedScene" uid="uid://b66ufk5l5u45m" path="res://Prefabs/Gameplay/SlotsTimeline/slot_card.tscn" id="1_xjk3g"]
+[ext_resource type="Texture2D" uid="uid://cdiu03271th1b" path="res://Sprites/Gameplay/gameplay_timeline_buff.svg" id="2_ch6r6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18gv4"]
+atlas = ExtResource("2_ch6r6")
+region = Rect2(0, 0, 202, 73)
+
+[node name="EnemyArea" type="HBoxContainer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="SlotCard" parent="." instance=ExtResource("1_xjk3g")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_18gv4")
+
+[node name="SlotCard2" parent="." instance=ExtResource("1_xjk3g")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_18gv4")
+
+[node name="SlotCard3" parent="." instance=ExtResource("1_xjk3g")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_18gv4")

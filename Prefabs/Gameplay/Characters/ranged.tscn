@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dr0ytu4xfv5os"]
+
+[ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_rd1va"]
+[ext_resource type="Texture2D" uid="uid://cvlfkgj4ltpqx" path="res://Sprites/Characters/player_ranged_exploded.svg" id="2_1sc84"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onshs"]
+atlas = ExtResource("1_rd1va")
+region = Rect2(0, 0, 117, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stn5v"]
+atlas = ExtResource("1_rd1va")
+region = Rect2(123, 69, 27, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nf3m"]
+atlas = ExtResource("2_1sc84")
+region = Rect2(2, 26, 74, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y38s"]
+atlas = ExtResource("2_1sc84")
+region = Rect2(117, 0, 50, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6fsg"]
+atlas = ExtResource("2_1sc84")
+region = Rect2(113, 60, 52, 54)
+
+[node name="Ranged" type="Node2D"]
+position = Vector2(-449, 89)
+
+[node name="Elements" type="Node2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="Elements"]
+texture = SubResource("AtlasTexture_onshs")
+
+[node name="LeftFoot" type="Sprite2D" parent="Elements"]
+position = Vector2(-11, -7)
+texture = SubResource("AtlasTexture_stn5v")
+
+[node name="LeftFoot2" type="Sprite2D" parent="Elements"]
+position = Vector2(19, -7)
+texture = SubResource("AtlasTexture_stn5v")
+
+[node name="Body" type="Sprite2D" parent="Elements"]
+position = Vector2(0, -63)
+texture = SubResource("AtlasTexture_3nf3m")
+
+[node name="Head" type="Sprite2D" parent="Elements"]
+position = Vector2(0, -104)
+texture = SubResource("AtlasTexture_6y38s")
+
+[node name="Weapon" type="Sprite2D" parent="Elements"]
+position = Vector2(52, -73)
+texture = SubResource("AtlasTexture_k6fsg")
