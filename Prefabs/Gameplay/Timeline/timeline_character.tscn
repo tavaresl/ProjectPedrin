@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1tgw876cy4e"]
+
+[ext_resource type="Script" path="res://Scripts/Timeline/timeline_character.gd" id="1_0yhd0"]
+[ext_resource type="Texture2D" uid="uid://cpxmvudj1hugv" path="res://Sprites/Timeline/timeline_character_card.png" id="2_of7il"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glu86"]
+size = Vector2(46, 45.5)
+
+[node name="TimelineCharacter" type="Node2D"]
+script = ExtResource("1_0yhd0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_of7il")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 100, 100)
+patch_margin_left = 21
+patch_margin_top = 25
+patch_margin_right = 20
+patch_margin_bottom = 24
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 65536
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0.75)
+shape = SubResource("RectangleShape2D_glu86")
