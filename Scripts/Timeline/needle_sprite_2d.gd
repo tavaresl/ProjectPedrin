@@ -1,6 +1,8 @@
 @tool
 extends Sprite2D
 
+class_name NeedleSprite2D
+
 @onready var ray_cast_2d = $"../RayCast2D"
 @export var color: Color
 

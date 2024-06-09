@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://csyxn48wa1hax" path="res://Prefabs/Gameplay/Timeline/dropzone.tscn" id="3_fy0ak"]
 [ext_resource type="PackedScene" uid="uid://c1tgw876cy4e" path="res://Prefabs/Gameplay/Timeline/timeline_character.tscn" id="3_y8kir"]
 [ext_resource type="Texture2D" uid="uid://qa6xogi20pty" path="res://Sprites/Timeline/timeline_spritesheet.png" id="4_yk517"]
-[ext_resource type="Script" path="res://Scripts/Timeline/Needle.gd" id="5_bdmdw"]
+[ext_resource type="PackedScene" uid="uid://cd8tuty4owgb4" path="res://Prefabs/Gameplay/Timeline/needle.tscn" id="5_amk3s"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g67fi"]
 
@@ -1929,11 +1929,12 @@ sources/0 = SubResource("TileSetAtlasSource_fsrj4")
 [node name="Timeline" type="Node2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_0wdb8")
-dropzone_prefab = ExtResource("3_fy0ak")
-timeline_character_prefab = ExtResource("3_y8kir")
 width = 720.0
 sections = 3
 gutter = 16
+needle_speed = 128.0
+dropzone_prefab = ExtResource("3_fy0ak")
+timeline_character_prefab = ExtResource("3_y8kir")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("CompressedTexture2D_g67fi")
@@ -1947,16 +1948,7 @@ layer_0/tile_data = PackedInt32Array(-196631, 0, 28, -131095, 0, 29, -65559, 0, 
 
 [node name="Dropzones" type="Node2D" parent="."]
 
-[node name="Needle" type="Node2D" parent="."]
-position = Vector2(-351, -63)
+[node name="Needle" parent="." instance=ExtResource("5_amk3s")]
+position = Vector2(-360, -64)
 
-[node name="Sprite2D" type="Sprite2D" parent="Needle"]
-modulate = Color(1, 1, 1, 0.72549)
-position = Vector2(0, -1)
-script = ExtResource("5_bdmdw")
-color = Color(0.905882, 0, 0.92549, 1)
-
-[node name="RayCast2D" type="RayCast2D" parent="Needle"]
-position = Vector2(0, -1)
-target_position = Vector2(2.08165e-12, 128)
-collision_mask = 65536
+[connection signal="hit_character" from="Needle" to="." method="_on_needle_hit_character"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cih4fnefypytr"]
+
+[ext_resource type="PackedScene" uid="uid://dooa1auqsjwtu" path="res://Prefabs/Gameplay/Characters/base_character.tscn" id="1_leqlf"]
+[ext_resource type="PackedScene" uid="uid://d0uo583ufdbhc" path="res://Prefabs/Gameplay/Characters/Board/melee.tscn" id="2_jvoku"]
+
+[node name="Character" instance=ExtResource("1_leqlf")]
+board_node = ExtResource("2_jvoku")

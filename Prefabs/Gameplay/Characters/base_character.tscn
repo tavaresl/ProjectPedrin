@@ -1,21 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dooa1auqsjwtu"]
+[gd_scene load_steps=2 format=3 uid="uid://dooa1auqsjwtu"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/base_character.gd" id="1_rwsql"]
-[ext_resource type="Texture2D" uid="uid://dtty2ct5g6uld" path="res://Sprites/Gameplay/Characters/characters.png" id="2_pvnjx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03rps"]
-
-[node name="BaseCharacter" type="AnimatableBody2D"]
+[node name="Character" type="Node2D"]
 script = ExtResource("1_rwsql")
 base_haste = 0.1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("2_pvnjx")
-region_enabled = true
-region_rect = Rect2(200.177, 14.8891, 14.5941, 20.4047)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_03rps")
+[node name="BoardCharacter" type="Node2D" parent="."]
 
 [node name="Effects" type="Node2D" parent="."]
