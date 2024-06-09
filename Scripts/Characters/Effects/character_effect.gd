@@ -57,7 +57,7 @@ func apply():
     target.health = clamp(target.health + health, 1, target.max_health)
     target.attack_power += attack_power
     target.defense += defense
-    target.evade += evade
+    target.evade_chance += evade
     target.haste += haste
   
   applied = true

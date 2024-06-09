@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3 uid="uid://j5luov12umh4"]
+
+[ext_resource type="PackedScene" uid="uid://ltygypb4ge2g" path="res://Prefabs/Gameplay/Timeline/timeline.tscn" id="1_7idju"]
+[ext_resource type="PackedScene" uid="uid://dooa1auqsjwtu" path="res://Prefabs/Gameplay/Characters/base_character.tscn" id="2_j0m73"]
+
+[node name="TimelineBattle" type="Node2D"]
+
+[node name="Timeline" parent="." node_paths=PackedStringArray("player_characters", "enemy_characters") instance=ExtResource("1_7idju")]
+position = Vector2(671, 556)
+player_characters = [NodePath("../Characters/HBoxContainer/Control/BaseCharacter"), NodePath("../Characters/HBoxContainer/Control2/BaseCharacter"), NodePath("../Characters/HBoxContainer/Control3/BaseCharacter")]
+enemy_characters = [NodePath("../Characters/HBoxContainer/Control4/BaseCharacter"), NodePath("../Characters/HBoxContainer/Control5/BaseCharacter"), NodePath("../Characters/HBoxContainer/Control6/BaseCharacter")]
+
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2(669, 122)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Characters"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = 1.0
+offset_right = 58.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="CenterContainer" parent="Characters/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseCharacter" parent="Characters/HBoxContainer/Control" instance=ExtResource("2_j0m73")]
+position = Vector2(32, 32)
+max_health = 20
+base_attack_power = 5
+base_defense = 6.0
+base_haste = 0.26
+
+[node name="Control2" type="CenterContainer" parent="Characters/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseCharacter" parent="Characters/HBoxContainer/Control2" instance=ExtResource("2_j0m73")]
+position = Vector2(32, 32)
+max_health = 18
+base_attack_power = 9
+base_defense = 2.0
+base_haste = 0.67
+
+[node name="Control3" type="CenterContainer" parent="Characters/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseCharacter" parent="Characters/HBoxContainer/Control3" instance=ExtResource("2_j0m73")]
+position = Vector2(32, 32)
+max_health = 18
+base_attack_power = 8
+base_defense = 3.0
+base_haste = 0.76
+
+[node name="Control4" type="CenterContainer" parent="Characters/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseCharacter" parent="Characters/HBoxContainer/Control4" instance=ExtResource("2_j0m73")]
+position = Vector2(32, 32)
+scale = Vector2(-1, 1)
+max_health = 20
+base_attack_power = 4
+base_defense = 7.0
+base_haste = 0.46
+
+[node name="Control5" type="CenterContainer" parent="Characters/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseCharacter" parent="Characters/HBoxContainer/Control5" instance=ExtResource("2_j0m73")]
+position = Vector2(32, 32)
+scale = Vector2(-1, 1)
+max_health = 15
+base_attack_power = 8
+base_haste = 0.49
+
+[node name="Control6" type="CenterContainer" parent="Characters/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseCharacter" parent="Characters/HBoxContainer/Control6" instance=ExtResource("2_j0m73")]
+position = Vector2(32, 32)
+scale = Vector2(-1, 1)
+max_health = 15
+base_attack_power = 7
+base_defense = 2.0
+base_haste = 0.82

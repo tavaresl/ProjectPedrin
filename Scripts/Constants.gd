@@ -36,3 +36,13 @@ static var BattleStatesNames = {
   BattleStates.RUN_TIMELINE: "RUN_TIMELINE",
   BattleStates.END_BATTLE: "END_BATTLE",
 }
+
+enum CharacterSide {
+  ALLY,
+  ENEMY,
+}
+
+static var CharacterSideNames = {
+  CharacterSide.ALLY: "ALLY",
+  CharacterSide.ENEMY: "ENEMY",
+}
