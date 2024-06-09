@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcdvrle864qq8"]
+[gd_scene load_steps=9 format=3 uid="uid://bcdvrle864qq8"]
 
 [ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_e53si"]
+[ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_mnf6l"]
 [ext_resource type="Texture2D" uid="uid://bggjdcgceayl1" path="res://Sprites/Characters/player_tank_exploded_enemy.svg" id="2_nflnd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onshs"]
@@ -25,6 +26,8 @@ region = Rect2(3, 108, 76, 113)
 
 [node name="Tank_Enemy" type="Node2D"]
 position = Vector2(-35, -80)
+
+[node name="CharacterAnimation" parent="." instance=ExtResource("1_mnf6l")]
 
 [node name="Elements" type="Node2D" parent="."]
 

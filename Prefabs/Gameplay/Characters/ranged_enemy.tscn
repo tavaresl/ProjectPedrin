@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd3np6droj4ly"]
+[gd_scene load_steps=10 format=3 uid="uid://bd3np6droj4ly"]
 
 [ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_0ur6t"]
+[ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_e8q6c"]
 [ext_resource type="Texture2D" uid="uid://dq3ni3qqem2lx" path="res://Sprites/Characters/player_ranged_exploded_enemy.svg" id="2_a6mod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw4wr"]
@@ -30,6 +31,8 @@ region = Rect2(113, 60, 52, 54)
 [node name="Ranged_Enemy" type="Node2D"]
 position = Vector2(329, 89)
 
+[node name="CharacterAnimation" parent="." instance=ExtResource("1_e8q6c")]
+
 [node name="Elements" type="Node2D" parent="."]
 
 [node name="Shadow" type="Sprite2D" parent="Elements"]
@@ -48,9 +51,10 @@ position = Vector2(0, -63)
 texture = SubResource("AtlasTexture_a1lf3")
 
 [node name="Head" type="Sprite2D" parent="Elements"]
-position = Vector2(0, -104)
+position = Vector2(0, -128)
 texture = SubResource("AtlasTexture_tvv58")
+offset = Vector2(0, 20.524)
 
 [node name="Weapon" type="Sprite2D" parent="Elements"]
-position = Vector2(52, -73)
+position = Vector2(62, -71)
 texture = SubResource("AtlasTexture_3useb")

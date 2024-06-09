@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0wyw0ghyh1c4"]
+
+[ext_resource type="AnimationLibrary" uid="uid://bm2yg4fq87e5o" path="res://Animations/character_animation.res" id="1_twpb6"]
+
+[node name="CharacterAnimation" type="AnimationPlayer"]
+root_node = NodePath("../Elements")
+libraries = {
+"character_animation": ExtResource("1_twpb6")
+}
