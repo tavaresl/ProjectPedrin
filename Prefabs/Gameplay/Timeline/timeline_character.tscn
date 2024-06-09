@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpxmvudj1hugv" path="res://Sprites/Timeline/timeline_character_card.png" id="2_of7il"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glu86"]
-size = Vector2(46, 45.5)
+size = Vector2(36, 34)
 
 [node name="TimelineCharacter" type="Node2D"]
 script = ExtResource("1_0yhd0")
@@ -37,5 +37,5 @@ collision_layer = 65536
 collision_mask = 131072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0.75)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_glu86")

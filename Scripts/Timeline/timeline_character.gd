@@ -8,6 +8,7 @@ class_name TimelineCharacter
 		return character
 	set(new_character):
 		character = new_character
+		character.died.connect(_on_character_died)
 		notify_property_list_changed()
 
 @export var side: Constants.CharacterSide
@@ -15,6 +16,7 @@ class_name TimelineCharacter
 @export_group("Colors")
 @export var enemy_tint: Color = Color.INDIAN_RED
 @export var ally_tint: Color = Color.WHITE
+@export var dead: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,3 +28,7 @@ func _process(_delta):
 		$Sprite2D.texture = character.timeline_icon
 	
 	$NinePatchRect.modulate = enemy_tint if side == Constants.CharacterSide.ENEMY else ally_tint
+
+func _on_character_died():
+	dead = true
+	queue_free()

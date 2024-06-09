@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr0ytu4xfv5os"]
+[gd_scene load_steps=10 format=3 uid="uid://djojiagoviv4n"]
 
 [ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_btqbf"]
 [ext_resource type="Script" path="res://Scripts/Character/character.gd" id="1_fqmgr"]
@@ -26,7 +26,7 @@ atlas = ExtResource("2_1sc84")
 region = Rect2(113, 60, 52, 54)
 
 [node name="Ranged" type="Node2D"]
-position = Vector2(-449, 89)
+position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_fqmgr")
 
 [node name="CharacterAnimation" parent="." instance=ExtResource("1_btqbf")]
@@ -47,7 +47,6 @@ texture = SubResource("AtlasTexture_stn5v")
 
 [node name="Body" type="Sprite2D" parent="Elements"]
 position = Vector2(0, -63)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_3nf3m")
 offset = Vector2(0, -5.48046)
 

@@ -9,5 +9,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	label.text = "Health: %s \nAttack Power: %s \nDefense: %s \nEvade: %s \nHaste: %s" % [parent.health, parent.attack_power, parent.defense, parent.evade, parent.haste]
+	label.text = "Health: %s \nAttack Power: %s \nDefense: %s \nEvade: %s \nHaste: %s" % [parent.health, parent.attack_power, parent.defense, parent.evade_chance, parent.haste]
 	label.queue_redraw()

@@ -70,7 +70,7 @@ func cancel():
   if not canceled and (remaining_duration == 0 or cancellable):
     target.attack_power -= attack_power
     target.defense -= defense
-    target.evade -= evade
+    target.evade_chance -= evade
     target.haste -= haste
 
   canceled = true
