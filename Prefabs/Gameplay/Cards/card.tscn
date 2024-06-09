@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cul77fslxc2wp"]
+[gd_scene load_steps=3 format=3 uid="uid://cul77fslxc2wp"]
 
 [ext_resource type="Texture2D" uid="uid://cgg0sqvrumlwl" path="res://Sprites/Gameplay/card_template.svg" id="1_w2ifc"]
+[ext_resource type="Script" path="res://Scripts/Card/card.gd" id="2_83mrv"]
 
-[node name="Card" type="TextureRect"]
-texture = ExtResource("1_w2ifc")
+[node name="Card" type="TextureButton"]
+offset_right = 100.0
+offset_bottom = 150.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_w2ifc")
 stretch_mode = 4
+script = ExtResource("2_83mrv")
 
 [node name="TextContent" type="GridContainer" parent="."]
 layout_mode = 1
@@ -15,11 +20,13 @@ anchor_right = 0.95
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextContent"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 bbcode_enabled = true
 text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
 
@@ -27,6 +34,7 @@ text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 bbcode_enabled = true
 text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
 
@@ -34,6 +42,7 @@ text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 bbcode_enabled = true
 text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
 
@@ -41,5 +50,9 @@ text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 bbcode_enabled = true
 text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
+
+[connection signal="button_down" from="." to="." method="drag"]
+[connection signal="button_up" from="." to="." method="drop"]

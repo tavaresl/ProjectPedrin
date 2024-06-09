@@ -38,14 +38,20 @@ initial_state = null
 [node name="Tank" parent="Node2D" instance=ExtResource("4_434fn")]
 
 [node name="Tank_Enemy" parent="Node2D" instance=ExtResource("5_8ph6p")]
+position = Vector2(460, -80)
+scale = Vector2(-1, 1)
 
 [node name="Melee" parent="Node2D" instance=ExtResource("5_dbvoc")]
 
 [node name="Melee_Enemy" parent="Node2D" instance=ExtResource("7_hdhan")]
+position = Vector2(279, 1)
+scale = Vector2(-1, 1)
 
 [node name="Ranged" parent="Node2D" instance=ExtResource("6_dersy")]
 
 [node name="Ranged_Enemy" parent="Node2D" instance=ExtResource("9_pe1bx")]
+position = Vector2(443, 89)
+scale = Vector2(-1, 1)
 
 [node name="Foreground" parent="Node2D" instance=ExtResource("10_olk7j")]
 
@@ -219,3 +225,5 @@ state = 6
 [connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton5" to="DEBUG/BattleStateTogglers/BattleStateButton5" method="_on_pressed"]
 [connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton6" to="DEBUG/BattleStateTogglers/BattleStateButton6" method="_on_pressed"]
 [connection signal="pressed" from="DEBUG/BattleStateTogglers/BattleStateButton7" to="DEBUG/BattleStateTogglers/BattleStateButton7" method="_on_pressed"]
+
+[editable path="Interface/Cards"]
