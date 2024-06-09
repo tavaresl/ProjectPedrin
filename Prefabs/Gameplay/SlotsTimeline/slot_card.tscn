@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://b66ufk5l5u45m"]
+
+[ext_resource type="Texture2D" uid="uid://cdiu03271th1b" path="res://Sprites/Gameplay/gameplay_timeline_buff.svg" id="1_6jwje"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juf75"]
+atlas = ExtResource("1_6jwje")
+region = Rect2(0, 73, 202, 73)
+
+[node name="SlotCard" type="TextureRect"]
+texture = SubResource("AtlasTexture_juf75")
+stretch_mode = 4
+
+[node name="Offset" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = 0.269
+anchor_right = 0.973
+anchor_bottom = 0.832
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="PropertyText" type="RichTextLabel" parent="Offset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=14][outline_size=7][outline_color=black][p align=center][b]ATK +5"
+
+[node name="PropertyText2" type="RichTextLabel" parent="Offset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=14][outline_size=7][outline_color=black][p align=center][b]ATK +5"
+
+[node name="PropertyText3" type="RichTextLabel" parent="Offset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=14][outline_size=7][outline_color=black][p align=center][b]ATK +5"
+
+[node name="PropertyText4" type="RichTextLabel" parent="Offset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=14][outline_size=7][outline_color=black][p align=center][b]ATK +5"

@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://v1f5om2hy207"]
+
+[ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_i1y0w"]
+[ext_resource type="Script" path="res://Scripts/Character/character.gd" id="1_jlywp"]
+[ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_rp33o"]
+[ext_resource type="Texture2D" uid="uid://dhs0bkf0lmpw8" path="res://Sprites/Characters/player_melee_exploded_enemy.svg" id="2_5webt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxm48"]
+atlas = ExtResource("1_i1y0w")
+region = Rect2(0, 0, 117, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch40e"]
+atlas = ExtResource("2_5webt")
+region = Rect2(68, 26, 27, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27jmc"]
+atlas = ExtResource("2_5webt")
+region = Rect2(68, 26, 27, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe13x"]
+atlas = ExtResource("2_5webt")
+region = Rect2(1, 27, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykosv"]
+atlas = ExtResource("2_5webt")
+region = Rect2(117, 0, 54, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfitk"]
+atlas = ExtResource("2_5webt")
+region = Rect2(106, 55, 59, 59)
+
+[node name="Melee_Enemy" type="Node2D"]
+position = Vector2(166, -16)
+script = ExtResource("1_jlywp")
+
+[node name="CharacterAnimation" parent="." instance=ExtResource("1_rp33o")]
+autoplay = "character_animation/character_idle"
+
+[node name="Elements" type="Node2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="Elements"]
+texture = SubResource("AtlasTexture_xxm48")
+
+[node name="LeftFoot" type="Sprite2D" parent="Elements"]
+position = Vector2(-11, -7)
+texture = SubResource("AtlasTexture_ch40e")
+
+[node name="LeftFoot2" type="Sprite2D" parent="Elements"]
+position = Vector2(19, -7)
+texture = SubResource("AtlasTexture_27jmc")
+
+[node name="Body" type="Sprite2D" parent="Elements"]
+position = Vector2(0, -63)
+texture = SubResource("AtlasTexture_fe13x")
+
+[node name="Head" type="Sprite2D" parent="Elements"]
+position = Vector2(0, -128)
+texture = SubResource("AtlasTexture_ykosv")
+
+[node name="Weapon" type="Sprite2D" parent="Elements"]
+position = Vector2(62, -71)
+texture = SubResource("AtlasTexture_tfitk")
+
+[connection signal="animation_finished" from="CharacterAnimation" to="." method="_on_character_animation_animation_finished"]
+[connection signal="animation_started" from="CharacterAnimation" to="." method="_on_character_animation_animation_started"]

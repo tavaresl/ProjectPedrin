@@ -25,6 +25,8 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Cards"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 72.0
+offset_top = 93.8
+offset_right = 172.0
+offset_bottom = 243.8
 texture = ExtResource("1_cn0yo")

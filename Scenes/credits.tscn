@@ -68,10 +68,19 @@ grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 text = "[p align=center]
-Programming: [url=https://github.com/Falme]Falme Streamless[/url]
+2D Art: [url=https://github.com/Falme]Falme Streamless[/url]
 Programming: [url=https://github.com/tavaresl]Lucas Tavares[/url]
+
 Guitar Icon by [url=https://game-icons.net/1x1/lorc/guitar.html]Lorc[/url]
 Plain arrow icon by [url=https://game-icons.net/1x1/delapouite/plain-arrow.html]Delapouite[/url]
+Wall Mounted Lamp by [url=https://opengameart.org/content/wall-mounted-lamp]Saroman[/url]
+Lamellar icon by [url=https://game-icons.net/1x1/lorc/lamellar.html]Lorc[/url]
+Bone knife icon by [url=https://game-icons.net/1x1/lorc/bone-knife.html]Lorc[/url]
+Layered armor icon by [url=https://game-icons.net/1x1/lorc/layered-armor.html]Lorc[/url]
+Bandana icon by [url=https://game-icons.net/1x1/delapouite/bandana.html]Delapouite[/url]
+Blunderbuss icon by [url=https://game-icons.net/1x1/lorc/blunderbuss.html]Lorc[/url]
+
+Short Medieval Loop Song by [url=https://opengameart.org/content/short-medieval-loop]remaxim[/url]
 [/p]"
 script = ExtResource("2_k3fs4")
 

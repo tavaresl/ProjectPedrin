@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca4ilnrjyekqu"]
+
+[ext_resource type="PackedScene" uid="uid://drpssq1l87lm5" path="res://Prefabs/Gameplay/SlotsTimeline/enemy_area.tscn" id="1_x5tkx"]
+[ext_resource type="PackedScene" uid="uid://va3dfdqhra8l" path="res://Prefabs/Gameplay/SlotsTimeline/player_area.tscn" id="2_5sja8"]
+
+[node name="SlotsArea" type="Control"]
+layout_mode = 3
+anchor_left = 0.259
+anchor_top = 0.585
+anchor_right = 0.731
+anchor_bottom = 0.795
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyArea" parent="." instance=ExtResource("1_x5tkx")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerArea" parent="." instance=ExtResource("2_5sja8")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 73.0
+offset_right = 606.0
+offset_bottom = 146.0
+grow_horizontal = 1
+grow_vertical = 1

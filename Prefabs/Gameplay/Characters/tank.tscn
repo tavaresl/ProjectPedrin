@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3pntyk7cqqb4"]
+
+[ext_resource type="Script" path="res://Scripts/Character/character.gd" id="1_a1vf7"]
+[ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_he8tt"]
+[ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_m3ae4"]
+[ext_resource type="AnimationLibrary" uid="uid://bm2yg4fq87e5o" path="res://Animations/character_animation.res" id="2_gkieh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onshs"]
+atlas = ExtResource("1_m3ae4")
+region = Rect2(0, 0, 117, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stn5v"]
+atlas = ExtResource("1_m3ae4")
+region = Rect2(123, 69, 27, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q22jn"]
+atlas = ExtResource("1_m3ae4")
+region = Rect2(2, 27, 111, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmrat"]
+atlas = ExtResource("1_m3ae4")
+region = Rect2(119, 0, 41, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwhgv"]
+atlas = ExtResource("1_m3ae4")
+region = Rect2(0, 107, 80, 114)
+
+[node name="Tank" type="Node2D"]
+position = Vector2(-428, -80)
+script = ExtResource("1_a1vf7")
+
+[node name="CharacterAnimation" parent="." instance=ExtResource("1_he8tt")]
+libraries = {
+"": ExtResource("2_gkieh")
+}
+autoplay = "character_idle"
+
+[node name="Elements" type="Node2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="Elements"]
+texture = SubResource("AtlasTexture_onshs")
+
+[node name="LeftFoot" type="Sprite2D" parent="Elements"]
+position = Vector2(-11, -7)
+texture = SubResource("AtlasTexture_stn5v")
+
+[node name="LeftFoot2" type="Sprite2D" parent="Elements"]
+position = Vector2(19, -7)
+texture = SubResource("AtlasTexture_stn5v")
+
+[node name="Body" type="Sprite2D" parent="Elements"]
+position = Vector2(0, -63)
+texture = SubResource("AtlasTexture_q22jn")
+
+[node name="Head" type="Sprite2D" parent="Elements"]
+position = Vector2(0, -128)
+texture = SubResource("AtlasTexture_wmrat")
+
+[node name="Weapon" type="Sprite2D" parent="Elements"]
+position = Vector2(62, -71)
+texture = SubResource("AtlasTexture_jwhgv")
+
+[connection signal="animation_finished" from="CharacterAnimation" to="." method="_on_character_animation_animation_finished"]
+[connection signal="animation_started" from="CharacterAnimation" to="." method="_on_character_animation_animation_started"]

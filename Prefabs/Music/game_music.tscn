@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddpqtsliuchgs"]
+
+[ext_resource type="AudioStream" uid="uid://dtugjvfstf2fq" path="res://Music/medieval_loop.wav" id="1_5jtjw"]
+
+[node name="GameMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_5jtjw")
+volume_db = -5.0
+autoplay = true

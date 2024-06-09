@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://cul77fslxc2wp"]
+
+[ext_resource type="Texture2D" uid="uid://cgg0sqvrumlwl" path="res://Sprites/Gameplay/card_template.svg" id="1_w2ifc"]
+
+[node name="Card" type="TextureRect"]
+texture = ExtResource("1_w2ifc")
+stretch_mode = 4
+
+[node name="TextContent" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="TextContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="TextContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="TextContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[outline_size=7][outline_color=black][p align=center][b]ATK +5"

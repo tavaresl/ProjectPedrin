@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/tavern.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameMusic="*res://Prefabs/Music/game_music.tscn"
+
 [display]
 
 window/size/viewport_width=1280
@@ -24,3 +28,4 @@ window/stretch/mode="viewport"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+anti_aliasing/quality/msaa_2d=2

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpcunysvwh7we"]
+
+[ext_resource type="Texture2D" uid="uid://0udyggcf087i" path="res://Sprites/Gameplay/gameplay_timeline_slots.svg" id="1_xkrnc"]
+[ext_resource type="PackedScene" uid="uid://ca4ilnrjyekqu" path="res://Prefabs/Gameplay/SlotsTimeline/slots_area.tscn" id="2_il7j8"]
+[ext_resource type="Texture2D" uid="uid://dv8d26gutuvoj" path="res://Sprites/Gameplay/gameplay_timeline.svg" id="4_ymbf3"]
+
+[node name="Timeline" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotsBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_xkrnc")
+
+[node name="SlotsArea" parent="SlotsBackground" instance=ExtResource("2_il7j8")]
+layout_mode = 1
+
+[node name="Timeline" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_ymbf3")
