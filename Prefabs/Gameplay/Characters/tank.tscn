@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3pntyk7cqqb4"]
+[gd_scene load_steps=10 format=3 uid="uid://b3pntyk7cqqb4"]
 
+[ext_resource type="Script" path="res://Scripts/Character/character.gd" id="1_a1vf7"]
 [ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_he8tt"]
 [ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_m3ae4"]
 [ext_resource type="AnimationLibrary" uid="uid://bm2yg4fq87e5o" path="res://Animations/character_animation.res" id="2_gkieh"]
@@ -26,6 +27,7 @@ region = Rect2(0, 107, 80, 114)
 
 [node name="Tank" type="Node2D"]
 position = Vector2(-428, -80)
+script = ExtResource("1_a1vf7")
 
 [node name="CharacterAnimation" parent="." instance=ExtResource("1_he8tt")]
 libraries = {

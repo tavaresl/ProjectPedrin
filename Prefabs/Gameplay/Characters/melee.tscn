@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc0qjbktm430s"]
+[gd_scene load_steps=10 format=3 uid="uid://dc0qjbktm430s"]
 
 [ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_3mpmw"]
+[ext_resource type="Script" path="res://Scripts/Character/character.gd" id="1_17g13"]
 [ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_mg32y"]
 [ext_resource type="Texture2D" uid="uid://cw4pw06h32618" path="res://Sprites/Characters/player_melee_exploded.svg" id="2_f2swo"]
 
@@ -26,6 +27,7 @@ region = Rect2(106, 55, 59, 59)
 
 [node name="Melee" type="Node2D"]
 position = Vector2(-233, -16)
+script = ExtResource("1_17g13")
 
 [node name="CharacterAnimation" parent="." instance=ExtResource("1_mg32y")]
 autoplay = "character_animation/character_idle"
@@ -44,16 +46,13 @@ position = Vector2(19, -7)
 texture = SubResource("AtlasTexture_stn5v")
 
 [node name="Body" type="Sprite2D" parent="Elements"]
-position = Vector2(0, -67.5753)
-rotation = 0.0361877
+position = Vector2(0, -63)
 texture = SubResource("AtlasTexture_p6ie2")
 
 [node name="Head" type="Sprite2D" parent="Elements"]
-position = Vector2(0, -125.927)
-rotation = -0.0361877
+position = Vector2(0, -128)
 texture = SubResource("AtlasTexture_wybfy")
 
 [node name="Weapon" type="Sprite2D" parent="Elements"]
-position = Vector2(62, -73.4204)
-rotation = -0.0210452
+position = Vector2(62, -71)
 texture = SubResource("AtlasTexture_6hjv6")

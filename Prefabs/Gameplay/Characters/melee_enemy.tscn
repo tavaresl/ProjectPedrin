@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://v1f5om2hy207"]
+[gd_scene load_steps=11 format=3 uid="uid://v1f5om2hy207"]
 
 [ext_resource type="Texture2D" uid="uid://cl3n5uvt3qyn" path="res://Sprites/Characters/player_tank_exploded.svg" id="1_i1y0w"]
+[ext_resource type="Script" path="res://Scripts/Character/character.gd" id="1_jlywp"]
 [ext_resource type="PackedScene" uid="uid://d0wyw0ghyh1c4" path="res://Animations/character_animation.tscn" id="1_rp33o"]
 [ext_resource type="Texture2D" uid="uid://dhs0bkf0lmpw8" path="res://Sprites/Characters/player_melee_exploded_enemy.svg" id="2_5webt"]
 
@@ -30,6 +31,7 @@ region = Rect2(106, 55, 59, 59)
 
 [node name="Melee_Enemy" type="Node2D"]
 position = Vector2(166, -16)
+script = ExtResource("1_jlywp")
 
 [node name="CharacterAnimation" parent="." instance=ExtResource("1_rp33o")]
 autoplay = "character_animation/character_idle"
